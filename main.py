@@ -76,7 +76,8 @@ class Blackjack:
         wait()
 
     def settle(self, winner=None):
-        winner = self.winner()
+        if winner is None:
+            winner = self.winner()
         _print_line()
         self._print_revealed_hands()
         _print_line()
