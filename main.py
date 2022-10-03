@@ -175,11 +175,14 @@ class Card:
 
 class Shoe(MyList):
     def __init__(self, num_of_decks):
-        super().__init__()
-        for _ in range(num_of_decks):
-            for face in deck.FACES:
-                for suit in deck.SUITS:
-                    self.append(Card(face, suit))
+        super().__init__(
+            [
+                Card(face, suit)
+                for face in deck.FACES
+                for suit in deck.SUITS
+                for _ in range(num_of_decks)
+            ]
+        )
 
     def shuffle(self):
         random.shuffle(self)
